@@ -95,7 +95,7 @@ public class MainForm extends JFrame {
 		
 		textField_1 = new JTextField();
 		textField_1.setEditable(false);
-		if (settings.discord()) {
+		if (settings.line()) {
 			textField_1.setText("\u6709\u52b9");
 		} else {
 			textField_1.setText("\u7121\u52B9");
@@ -120,6 +120,10 @@ public class MainForm extends JFrame {
 		panel.add(button);
 		
 		JButton button_1 = new JButton("\u8A2D\u5B9A");
+		button_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		button_1.setBounds(243, 29, 91, 21);
 		panel.add(button_1);
 		

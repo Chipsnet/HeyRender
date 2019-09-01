@@ -10,72 +10,34 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.util.Properties;
 public class Settings {
-    public void load() {
-
-        Properties properties = new Properties();
-
-        String file = "sample.properties";
-        File isfile = new File(file);
+    public Properties load() {
+    	Properties properties = new Properties();
+        String file = "settings.properties";
         try {
-            InputStream inputStream = new FileInputStream(file);
-            properties.load(inputStream);
-            inputStream.close();
-
-            // 値の取得
-            System.out.println(properties.getProperty("id"));
-            System.out.println(properties.getProperty("password"));
-
+        	InputStream inputStream = new FileInputStream(file);
+        	properties.load(inputStream);
+        	inputStream.close();
         } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-            if (isfile.exists()) {
-            	JOptionPane.showMessageDialog(null, "致命的なエラーが発生しました。\n"+ex.getMessage(), "HeyRender Error", JOptionPane.ERROR_MESSAGE);
-            	System.exit(0);
-            } else {
-            	JOptionPane.showMessageDialog(null, "致命的なエラーが発生しました。\n"+ex.getMessage(), "HeyRender Error", JOptionPane.ERROR_MESSAGE);
-            	System.exit(0);
-            }
+            JOptionPane.showMessageDialog(null, "致命的なエラーが発生しました。\n"+ex.getMessage(), "HeyRender Error", JOptionPane.ERROR_MESSAGE);
+           	System.exit(0);
         }
+		return properties;
     }
     public boolean discord() {
-    	Properties properties = new Properties();
-        String file = "settings.properties";
-        try {
-        	InputStream inputStream = new FileInputStream(file);
-        	properties.load(inputStream);
-        	inputStream.close();
-        	
-        	if (properties.getProperty("discord").equals("")) {
-        		return false;
-        	} else {
-        		return true;
-        	}
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "致命的なエラーが発生しました。\n"+ex.getMessage(), "HeyRender Error", JOptionPane.ERROR_MESSAGE);
-           	System.exit(0);
+        if (load().getProperty("discord").equals("")) {
+        	return false;
+        } else {
+        	return true;
         }
-		return false;
     }
     public boolean line() {
-    	Properties properties = new Properties();
-        String file = "settings.properties";
-        try {
-        	InputStream inputStream = new FileInputStream(file);
-        	properties.load(inputStream);
-        	inputStream.close();
-        	
-        	if (properties.getProperty("line").equals("")) {
-        		return false;
-        	} else {
-        		return true;
-        	}
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "致命的なエラーが発生しました。\n"+ex.getMessage(), "HeyRender Error", JOptionPane.ERROR_MESSAGE);
-           	System.exit(0);
+        if (load().getProperty("line").equals("")) {
+        	return false;
+        } else {
+        	return true;
         }
-		return false;
     }
     public void check() {
-    	System.out.print("OK");
     	Properties properties = new Properties();
         String file = "settings.properties";
         File isfile = new File(file);
@@ -86,8 +48,6 @@ public class Settings {
                 properties.load(inputStream);
                 inputStream.close();
 
-                System.out.println(properties.getProperty("line"));
-                System.out.println(properties.getProperty("discord"));
 
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, "致命的なエラーが発生しました。\n"+ex.getMessage(), "HeyRender Error", JOptionPane.ERROR_MESSAGE);
