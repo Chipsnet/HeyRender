@@ -24,6 +24,7 @@ import javax.swing.JToggleButton;
 import javax.swing.JProgressBar;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
+import javax.swing.JOptionPane;
 
 public class MainForm extends JFrame {
 
@@ -108,11 +109,23 @@ public class MainForm extends JFrame {
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (settings.discord()) {
-					settings.write();
-					textField_1.setText("\u6709\u52b9");
+					JFrame frame = new JFrame();
+					int option = JOptionPane.showConfirmDialog(frame, "設定を削除しますか？", "Setting", 0);
+				    if (option == JOptionPane.YES_OPTION){
+				    	settings.write("discord", "");
+				    	textField.setText("\u7121\u52B9");
+				    }
 				} else {
-					settings.write();
-					textField_1.setText("\u7121\u52B9");
+					JFrame frame = new JFrame();
+					String data = JOptionPane.showInputDialog(frame, "DiscordのWebhookURLを入力してください。");
+					if (data == null) {
+						JOptionPane.showMessageDialog(null, "キャンセルしました。", "Settings", 1);
+					} else if (data.equals("")) { 
+						JOptionPane.showMessageDialog(null, "キャンセルしました。", "Settings", 1);
+					} else {
+						settings.write("discord", data);
+						textField.setText("\u6709\u52b9");
+					}	
 				}
 			}
 		});
@@ -122,6 +135,25 @@ public class MainForm extends JFrame {
 		JButton button_1 = new JButton("\u8A2D\u5B9A");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if (settings.line()) {
+					JFrame frame = new JFrame();
+					int option = JOptionPane.showConfirmDialog(frame, "設定を削除しますか？", "Setting", 0);
+				    if (option == JOptionPane.YES_OPTION){
+				    	settings.write("line", "");
+				    	textField_1.setText("\u7121\u52B9");
+				    }
+				} else {
+					JFrame frame = new JFrame();
+					String data = JOptionPane.showInputDialog(frame, "LINE NotifyのTokenを入力してください。");
+					if (data == null) {
+						JOptionPane.showMessageDialog(null, "キャンセルしました。", "Settings", 1);
+					} else if (data.equals("")) { 
+						JOptionPane.showMessageDialog(null, "キャンセルしました。", "Settings", 1);
+					} else {
+						settings.write("line", data);
+						textField_1.setText("\u6709\u52b9");
+					}	
+				}
 			}
 		});
 		button_1.setBounds(243, 29, 91, 21);
@@ -156,6 +188,7 @@ public class MainForm extends JFrame {
 		});
 		btnNewButton.setBounds(160, 207, 91, 21);
 		panel_1.add(btnNewButton);
+		
 	}
 
 	private static void addPopup(Component component, final JPopupMenu popup) {

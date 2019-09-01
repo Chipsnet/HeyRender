@@ -38,17 +38,17 @@ public class Settings {
         }
     }
     public void check() {
+    	//properties読み込み
     	Properties properties = new Properties();
         String file = "settings.properties";
         File isfile = new File(file);
         
+        //ファイルの存在確認
         if (isfile.exists()) {
             try {
                 InputStream inputStream = new FileInputStream(file);
                 properties.load(inputStream);
                 inputStream.close();
-
-
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, "致命的なエラーが発生しました。\n"+ex.getMessage(), "HeyRender Error", JOptionPane.ERROR_MESSAGE);
                	System.exit(0);
@@ -58,24 +58,24 @@ public class Settings {
         	System.exit(0);
         }
     }
-    public void write() {
+    public void write(String key, String data) {
+    	
         Properties properties = new Properties();
-        
-        // プロパティファイルのパスを指定する
         String strpass = "settings.properties";
         
         try {
-            // 書き込み
-            properties.setProperty("discord", "侍aaa");
+            if (key.equals("discord")) {
+            	properties.setProperty("discord", data);
+            	properties.setProperty("line", load().getProperty("line"));
+            	JOptionPane.showMessageDialog(null, "設定しました。", "Settings", 1);
+            } else {
+            	properties.setProperty("line", data);
+            	properties.setProperty("discord", load().getProperty("discord"));
+            	JOptionPane.showMessageDialog(null, "設定しました。", "Settings", 1);
+            }
             OutputStream ostream = new FileOutputStream(strpass);
             OutputStreamWriter osw = new OutputStreamWriter(ostream, "UTF-8");
-            properties.store(osw, "Comments");
-            
-            // 読み込み
-            InputStream istream = new FileInputStream(strpass);
-            InputStreamReader isr = new InputStreamReader(istream, "UTF-8");
-            properties.load(isr);
-            istream.close();
+            properties.store(osw, "HeyRender Settings");
         } catch (IOException e) {
             e.printStackTrace();
         }
