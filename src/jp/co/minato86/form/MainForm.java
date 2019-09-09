@@ -3,6 +3,8 @@ package jp.co.minato86.form;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
+import java.io.File;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -25,6 +27,9 @@ import javax.swing.JProgressBar;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 import javax.swing.JOptionPane;
+import javax.swing.JFileChooser;
+import java.awt.CardLayout;
+import java.awt.FlowLayout;
 
 public class MainForm extends JFrame {
 
@@ -32,6 +37,8 @@ public class MainForm extends JFrame {
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
+	private JTextField textField_3;
+	private JTextField textField_4;
 
 	/**
 	 * Launch the application.
@@ -63,10 +70,9 @@ public class MainForm extends JFrame {
 		contentPane.setToolTipText("");
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(null);
+		contentPane.setLayout(new BorderLayout(0, 0));
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.setBounds(2, 0, 432, 261);
 		contentPane.add(tabbedPane);
 		
 		JPanel panel = new JPanel();
@@ -159,34 +165,87 @@ public class MainForm extends JFrame {
 		button_1.setBounds(243, 29, 91, 21);
 		panel.add(button_1);
 		
+		JLabel label = new JLabel("\u30D5\u30A1\u30A4\u30EB\u306E\u9078\u629E");
+		label.setBounds(12, 68, 110, 13);
+		panel.add(label);
+		
+		textField_3 = new JTextField();
+		textField_3.setEnabled(false);
+		textField_3.setBounds(22, 114, 288, 19);
+		panel.add(textField_3);
+		textField_3.setColumns(10);
+		
+		JLabel lblNewLabel_1 = new JLabel("\u30D5\u30A9\u30EB\u30C0\u306E\u5834\u6240");
+		lblNewLabel_1.setBounds(22, 91, 110, 13);
+		panel.add(lblNewLabel_1);
+		
+		JButton btnNewButton_1 = new JButton("選択");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				final JFrame frame = new JFrame();
+				
+			    JFileChooser filechooser = new JFileChooser();
+			    filechooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+
+			    int selected = filechooser.showOpenDialog(frame);
+			    if (selected == JFileChooser.APPROVE_OPTION){
+			      File file = filechooser.getSelectedFile();
+			      textField_3.setText(file.getAbsolutePath());
+			    }
+			}
+		});
+		btnNewButton_1.setBounds(322, 113, 85, 21);
+		panel.add(btnNewButton_1);
+		
+		JLabel label_1 = new JLabel("\u30D5\u30A1\u30A4\u30EB\u540D");
+		label_1.setBounds(22, 157, 176, 13);
+		panel.add(label_1);
+		
+		textField_4 = new JTextField();
+		textField_4.setBounds(22, 180, 385, 19);
+		panel.add(textField_4);
+		textField_4.setColumns(10);
+		
 		JPanel panel_1 = new JPanel();
 		tabbedPane.addTab("Console", null, panel_1, null);
 		panel_1.setLayout(null);
 		
 		JList list = new JList();
-		list.setBounds(0, 0, 427, 201);
+		list.setBounds(0, 0, 427, 186);
 		panel_1.add(list);
 		
 		JLabel lblStatus = new JLabel("Status:");
-		lblStatus.setBounds(10, 211, 81, 13);
+		lblStatus.setBounds(10, 196, 81, 13);
 		panel_1.add(lblStatus);
 		
 		textField_2 = new JTextField();
 		textField_2.setEditable(false);
 		textField_2.setText("\u5F85\u6A5F\u4E2D");
-		textField_2.setBounds(52, 208, 96, 19);
+		textField_2.setBounds(52, 193, 96, 19);
 		panel_1.add(textField_2);
 		textField_2.setColumns(10);
 		
 		JButton btnNewButton = new JButton("\u958B\u59CB");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				try {
+					DiscordWebhook webhook = new DiscordWebhook(settings.load().getProperty("discord"));
+					webhook.addEmbed(new DiscordWebhook.EmbedObject()
+				            .setTitle("HeyRender")
+				            .setDescription("Rendering Completed!!")
+				            .addField("Time", "5sec", true)
+							.addField("FileName", "unchi.mp4", true));
+					webhook.execute();
+				} catch (Exception ex) {
+		            JOptionPane.showMessageDialog(null, "致命的なエラーが発生しました。\n"+ex.getMessage(), "HeyRender Error", JOptionPane.ERROR_MESSAGE);
+		           	System.exit(0);
+				}
 				btnNewButton.setText(((button.getText()).equals("\u5b9f\u884c\u4e2d"))?"\u958B\u59CB":"\u5b9f\u884c\u4e2d");
 				btnNewButton.setEnabled(false);
 				textField_2.setText("\u76e3\u8996\u4e2d");
 			}
 		});
-		btnNewButton.setBounds(160, 207, 91, 21);
+		btnNewButton.setBounds(161, 192, 91, 21);
 		panel_1.add(btnNewButton);
 		
 	}

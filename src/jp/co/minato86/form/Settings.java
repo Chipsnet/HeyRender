@@ -43,7 +43,7 @@ public class Settings {
         String file = "settings.properties";
         File isfile = new File(file);
         
-        //ファイルの存在確認
+        //
         if (isfile.exists()) {
             try {
                 InputStream inputStream = new FileInputStream(file);
@@ -54,8 +54,17 @@ public class Settings {
                	System.exit(0);
             }
         } else {
-        	JOptionPane.showMessageDialog(null, "設定ファイルの読み込みに失敗しました。\n削除した場合は、再ダウンロードを行ってください。", "HeyRender Error", JOptionPane.ERROR_MESSAGE);
-        	System.exit(0);
+        	try {
+                OutputStream ostream = new FileOutputStream(file);
+                OutputStreamWriter osw = new OutputStreamWriter(ostream, "UTF-8");
+            	properties.setProperty("line", "");
+            	properties.setProperty("discord", "");
+            	properties.store(osw, "HeyRender Settings");
+            	check();
+        	} catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "致命的なエラーが発生しました。\n"+ex.getMessage(), "HeyRender Error", JOptionPane.ERROR_MESSAGE);
+               	System.exit(0);
+            }
         }
     }
     public void write(String key, String data) {
