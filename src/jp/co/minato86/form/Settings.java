@@ -43,7 +43,6 @@ public class Settings {
         String file = "settings.properties";
         File isfile = new File(file);
         
-        //
         if (isfile.exists()) {
             try {
                 InputStream inputStream = new FileInputStream(file);
