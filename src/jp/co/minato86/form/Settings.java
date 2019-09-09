@@ -54,12 +54,12 @@ public class Settings {
             }
         } else {
         	try {
-                OutputStream ostream = new FileOutputStream(file);
-                OutputStreamWriter osw = new OutputStreamWriter(ostream, "UTF-8");
-            	properties.setProperty("line", "");
-            	properties.setProperty("discord", "");
-            	properties.store(osw, "HeyRender Settings");
-            	check();
+        		OutputStream ostream = new FileOutputStream(file);
+        		OutputStreamWriter osw = new OutputStreamWriter(ostream, "UTF-8");
+        		properties.setProperty("line", "");
+        		properties.setProperty("discord", "");
+        		properties.store(osw, "HeyRender Settings");
+        		check();
         	} catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, "致命的なエラーが発生しました。\n"+ex.getMessage(), "HeyRender Error", JOptionPane.ERROR_MESSAGE);
                	System.exit(0);
