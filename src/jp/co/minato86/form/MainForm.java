@@ -4,6 +4,13 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+
+import java.awt.Desktop;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -18,6 +25,9 @@ import java.awt.Component;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 
 import javax.swing.JTextArea;
 import javax.swing.JTextPane;
@@ -30,6 +40,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JFileChooser;
 import java.awt.CardLayout;
 import java.awt.FlowLayout;
+import javax.swing.JSpinner;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
+import java.awt.Font;
 
 public class MainForm extends JFrame {
 
@@ -210,10 +224,6 @@ public class MainForm extends JFrame {
 		tabbedPane.addTab("Console", null, panel_1, null);
 		panel_1.setLayout(null);
 		
-		JList list = new JList();
-		list.setBounds(0, 0, 427, 186);
-		panel_1.add(list);
-		
 		JLabel lblStatus = new JLabel("Status:");
 		lblStatus.setBounds(10, 196, 81, 13);
 		panel_1.add(lblStatus);
@@ -226,45 +236,158 @@ public class MainForm extends JFrame {
 		textField_2.setColumns(10);
 		
 		JButton btnNewButton = new JButton("\u958B\u59CB");
+		btnNewButton.setBounds(161, 192, 91, 21);
+		panel_1.add(btnNewButton);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(0, 0, 419, 186);
+		panel_1.add(scrollPane);
+		
+		JTextArea textArea = new JTextArea();
+		textArea.setEnabled(false);
+		scrollPane.setViewportView(textArea);
+		
+		JPanel panel_2 = new JPanel();
+		tabbedPane.addTab("About", null, panel_2, null);
+		panel_2.setLayout(null);
+		
+		JLabel lblNewLabel_2 = new JLabel("HeyRender");
+		lblNewLabel_2.setFont(new Font("MS UI Gothic", Font.PLAIN, 50));
+		lblNewLabel_2.setBounds(27, 25, 322, 55);
+		panel_2.add(lblNewLabel_2);
+		
+		JLabel lblVersionBeta = new JLabel("Version: Beta 1.0.0");
+		lblVersionBeta.setBounds(27, 79, 180, 13);
+		panel_2.add(lblVersionBeta);
+		
+		JLabel lblcMinato = new JLabel("(c) 2019 Minato86");
+		lblcMinato.setBounds(27, 167, 112, 13);
+		panel_2.add(lblcMinato);
+		
+		JLabel lblDevelopedByMinato = new JLabel("Developed by Minato86");
+		lblDevelopedByMinato.setBounds(27, 190, 161, 13);
+		panel_2.add(lblDevelopedByMinato);
+		
+		JButton btnOpensite = new JButton("OpenSite");
+		btnOpensite.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Desktop desktop = Desktop.getDesktop();
+				String uriString = "https://minato86.me/";
+				try {
+					URI uri = new URI(uriString);
+					desktop.browse(uri);
+				} catch (URISyntaxException e1) {
+					e1.printStackTrace();
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+			}
+		});
+		btnOpensite.setBounds(316, 186, 91, 21);
+		panel_2.add(btnOpensite);
+		
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					DiscordWebhook webhook = new DiscordWebhook(settings.load().getProperty("discord"));
-					webhook.addEmbed(new DiscordWebhook.EmbedObject()
-				            .setTitle("HeyRender")
-				            .setDescription("Rendering Completed!!")
-				            .addField("Time", "5sec", true)
-							.addField("FileName", "unchi.mp4", true));
-					webhook.execute();
+					if ((!textField_3.getText().equals("")) && (!textField_4.getText().equals(""))) {
+				        String file = textField_3.getText()+"\\"+textField_4.getText();
+				        textArea.append("[INFO] 監視を開始します\n[INFO] Filepath:"+file+"\n");
+				        File isfile = new File(file);
+						
+				        new Thread(new Runnable() {
+				            @Override
+				            public void run() {
+				            	
+				            	int time = 0;
+						        int cnt = 0;	
+						        int temp = 0;
+				            	
+						        while (true) {
+						        	if (isfile.exists()) {
+						        		textArea.append("[INFO] ファイルを検出しました。容量の検証を行います\n");
+						        		time += 1;
+										break;
+						        	} else {
+						        		time += 1;
+						        		textArea.append("[INFO] 監視中 - ファイルなし 経過時間:"+time+"秒\n");
+						        		try {
+											Thread.sleep(1000);
+										} catch (InterruptedException e) {
+											e.printStackTrace();
+										}
+						        	}
+						        }
+
+						        while (true) {
+						        	File fileout = new File(file);
+						        	if (fileout.length() == temp) {
+						        		cnt += 1;
+						        		temp = (int) fileout.length();
+						        	} else {
+						        		cnt = 0;
+						        		temp = (int) fileout.length();
+						        	}
+						        	if (cnt < 20) {
+						        		time += 1;
+						        		textArea.append("[INFO] 監視中 - 容量確認 経過時間:"+time+"秒 容量:"+fileout.length()+"\n");
+						        		try {
+											Thread.sleep(1000);
+										} catch (InterruptedException e) {
+											e.printStackTrace();
+										}
+						        	} else {
+						        		textArea.append("[INFO] レンダリング完了 経過時間："+time+"秒\n");
+						        		textArea.append("[INFO] 通知の送信を開始します。\n");
+						        		if (settings.line()) {
+						        			final String USER_TOKEN = settings.load().getProperty("line");
+						        			LineNotify ln = new LineNotify(USER_TOKEN);
+						        			try {
+												ln.notifyMe("レンダリングが完了しました！\n経過時間:"+time+"秒\nファイル名:"+textField_4.getText());
+											} catch (IOException e) {
+												e.printStackTrace();
+											}
+						        		} else {
+						        			textArea.append("[INFO] LINE通知が無効なため、スキップしました\n");
+						        		}
+										if (settings.discord()) {
+											DiscordWebhook webhook = new DiscordWebhook(settings.load().getProperty("discord"));
+											webhook.addEmbed(new DiscordWebhook.EmbedObject()
+										            .setTitle("HeyRender")
+										            .setDescription("Rendering Completed!!")
+										            .addField("Time", time+"sec", true)
+													.addField("FileName", textField_4.getText(), true));
+											
+											try {
+												webhook.execute();
+												btnNewButton.setText("\u958B\u59CB");
+												btnNewButton.setEnabled(true);
+												textField_2.setText("\u5b8c\u4e86");
+											} catch (IOException e) {
+												e.printStackTrace();
+											}
+										} else {
+											textArea.append("[INFO] Discord通知が無効なため、スキップしました\n");
+										}
+										textArea.append("[INFO] 通知の送信が完了しました\n");
+										break;
+						        	}
+						        }
+				            }
+				        }).start();
+						
+						btnNewButton.setText("\u5b9f\u884c\u4e2d");
+						btnNewButton.setEnabled(false);
+						textField_2.setText("\u76e3\u8996\u4e2d");
+						
+					} else {
+						JOptionPane.showMessageDialog(null, "ファイルを指定してください。", "Settings", 1);
+					}
 				} catch (Exception ex) {
 		            JOptionPane.showMessageDialog(null, "致命的なエラーが発生しました。\n"+ex.getMessage(), "HeyRender Error", JOptionPane.ERROR_MESSAGE);
 		           	System.exit(0);
 				}
-				btnNewButton.setText(((button.getText()).equals("\u5b9f\u884c\u4e2d"))?"\u958B\u59CB":"\u5b9f\u884c\u4e2d");
-				btnNewButton.setEnabled(false);
-				textField_2.setText("\u76e3\u8996\u4e2d");
 			}
 		});
-		btnNewButton.setBounds(161, 192, 91, 21);
-		panel_1.add(btnNewButton);
 		
-	}
-
-	private static void addPopup(Component component, final JPopupMenu popup) {
-		component.addMouseListener(new MouseAdapter() {
-			public void mousePressed(MouseEvent e) {
-				if (e.isPopupTrigger()) {
-					showMenu(e);
-				}
-			}
-			public void mouseReleased(MouseEvent e) {
-				if (e.isPopupTrigger()) {
-					showMenu(e);
-				}
-			}
-			private void showMenu(MouseEvent e) {
-				popup.show(e.getComponent(), e.getX(), e.getY());
-			}
-		});
 	}
 }

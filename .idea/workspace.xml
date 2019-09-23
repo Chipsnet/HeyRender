@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="HeyRender_beta1.0.0" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d93e424c-ea8c-446f-9c00-505177e936c1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/bin/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/jp/co/minato86/form/DiscordWebhook$EmbedObject$Author.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/jp/co/minato86/form/DiscordWebhook$EmbedObject$Author.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/jp/co/minato86/form/DiscordWebhook$EmbedObject$Field.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/jp/co/minato86/form/DiscordWebhook$EmbedObject$Field.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/jp/co/minato86/form/DiscordWebhook$EmbedObject$Footer.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/jp/co/minato86/form/DiscordWebhook$EmbedObject$Footer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/jp/co/minato86/form/DiscordWebhook$EmbedObject$Image.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/jp/co/minato86/form/DiscordWebhook$EmbedObject$Image.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/jp/co/minato86/form/DiscordWebhook$EmbedObject$Thumbnail.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/jp/co/minato86/form/DiscordWebhook$EmbedObject$Thumbnail.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/jp/co/minato86/form/DiscordWebhook$EmbedObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/jp/co/minato86/form/DiscordWebhook$EmbedObject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/jp/co/minato86/form/DiscordWebhook$JSONObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/jp/co/minato86/form/DiscordWebhook$JSONObject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/jp/co/minato86/form/DiscordWebhook.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/jp/co/minato86/form/DiscordWebhook.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/jp/co/minato86/form/MainForm$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/jp/co/minato86/form/MainForm$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/jp/co/minato86/form/MainForm$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/jp/co/minato86/form/MainForm$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/jp/co/minato86/form/MainForm$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/jp/co/minato86/form/MainForm$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/jp/co/minato86/form/MainForm$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/jp/co/minato86/form/MainForm$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/jp/co/minato86/form/MainForm$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/jp/co/minato86/form/MainForm$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/jp/co/minato86/form/MainForm$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/jp/co/minato86/form/MainForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/jp/co/minato86/form/MainForm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/jp/co/minato86/form/Settings.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/jp/co/minato86/form/Settings.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jp/co/minato86/form/MainForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jp/co/minato86/form/MainForm.java" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="D:\Data\develop\HeyRender\.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1REZUouTpfBLeb8ysOsAeICYw6V" />
+  <component name="PropertiesComponent">
+    <property name="GenerateAntBuildDialog.backupFiles" value="true" />
+    <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
+    <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
+    <property name="GenerateAntBuildDialog.generateSingleFile" value="true" />
+    <property name="GenerateAntBuildDialog.outputFileNameProperty" value="heyrender" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="MainForm" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="11" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="jp.co.minato86.form.MainForm" />
+      <module name="HeyRender" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="jp.co.minato86.form.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.MainForm" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d93e424c-ea8c-446f-9c00-505177e936c1" name="Default Changelist" comment="" />
+      <created>1569234234075</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1569234234075</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
