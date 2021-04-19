@@ -18,7 +18,7 @@ public class Settings {
         	properties.load(inputStream);
         	inputStream.close();
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "’v–½“I‚ÈƒGƒ‰[‚ª”­¶‚µ‚Ü‚µ‚½B\n"+ex.getMessage(), "HeyRender Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "è‡´å‘½çš„ãªã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ã¾ã—ãŸã€‚\n"+ex.getMessage(), "HeyRender Error", JOptionPane.ERROR_MESSAGE);
            	System.exit(0);
         }
 		return properties;
@@ -38,7 +38,7 @@ public class Settings {
         }
     }
     public void check() {
-    	//properties“Ç‚İ‚İ
+    	//propertiesï¿½Ç‚İï¿½ï¿½ï¿½
     	Properties properties = new Properties();
         String file = "settings.properties";
         File isfile = new File(file);
@@ -49,7 +49,7 @@ public class Settings {
                 properties.load(inputStream);
                 inputStream.close();
             } catch (Exception ex) {
-                JOptionPane.showMessageDialog(null, "’v–½“I‚ÈƒGƒ‰[‚ª”­¶‚µ‚Ü‚µ‚½B\n"+ex.getMessage(), "HeyRender Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "è‡´å‘½çš„ãªã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ã¾ã—ãŸã€‚\n"+ex.getMessage(), "HeyRender Error", JOptionPane.ERROR_MESSAGE);
                	System.exit(0);
             }
         } else {
@@ -61,7 +61,7 @@ public class Settings {
         		properties.store(osw, "HeyRender Settings");
         		check();
         	} catch (Exception ex) {
-                JOptionPane.showMessageDialog(null, "’v–½“I‚ÈƒGƒ‰[‚ª”­¶‚µ‚Ü‚µ‚½B\n"+ex.getMessage(), "HeyRender Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "è‡´å‘½çš„ãªã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ã¾ã—ãŸã€‚\n"+ex.getMessage(), "HeyRender Error", JOptionPane.ERROR_MESSAGE);
                	System.exit(0);
             }
         }
@@ -75,11 +75,11 @@ public class Settings {
             if (key.equals("discord")) {
             	properties.setProperty("discord", data);
             	properties.setProperty("line", load().getProperty("line"));
-            	JOptionPane.showMessageDialog(null, "İ’è‚µ‚Ü‚µ‚½B", "Settings", 1);
+            	JOptionPane.showMessageDialog(null, "è¨­å®šã—ã¾ã—ãŸã€‚", "Settings", 1);
             } else {
             	properties.setProperty("line", data);
             	properties.setProperty("discord", load().getProperty("discord"));
-            	JOptionPane.showMessageDialog(null, "İ’è‚µ‚Ü‚µ‚½B", "Settings", 1);
+            	JOptionPane.showMessageDialog(null, "è¨­å®šã—ã¾ã—ãŸã€‚", "Settings", 1);
             }
             OutputStream ostream = new FileOutputStream(strpass);
             OutputStreamWriter osw = new OutputStreamWriter(ostream, "UTF-8");

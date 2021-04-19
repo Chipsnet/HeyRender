@@ -130,18 +130,18 @@ public class MainForm extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if (settings.discord()) {
 					JFrame frame = new JFrame();
-					int option = JOptionPane.showConfirmDialog(frame, "İ’è‚ğíœ‚µ‚Ü‚·‚©H", "Setting", 0);
+					int option = JOptionPane.showConfirmDialog(frame, "è¨­å®šã‚’å‰Šé™¤ã—ã¾ã™ã‹ï¼Ÿ", "Setting", 0);
 				    if (option == JOptionPane.YES_OPTION){
 				    	settings.write("discord", "");
 				    	textField.setText("\u7121\u52B9");
 				    }
 				} else {
 					JFrame frame = new JFrame();
-					String data = JOptionPane.showInputDialog(frame, "Discord‚ÌWebhookURL‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B");
+					String data = JOptionPane.showInputDialog(frame, "Discordã®WebhookURLã‚’å…¥åŠ›ã—ã¦ãã ã•ã„ã€‚");
 					if (data == null) {
-						JOptionPane.showMessageDialog(null, "ƒLƒƒƒ“ƒZƒ‹‚µ‚Ü‚µ‚½B", "Settings", 1);
+						JOptionPane.showMessageDialog(null, "ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã—ã¾ã—ãŸã€‚", "Settings", 1);
 					} else if (data.equals("")) { 
-						JOptionPane.showMessageDialog(null, "ƒLƒƒƒ“ƒZƒ‹‚µ‚Ü‚µ‚½B", "Settings", 1);
+						JOptionPane.showMessageDialog(null, "ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã—ã¾ã—ãŸã€‚", "Settings", 1);
 					} else {
 						settings.write("discord", data);
 						textField.setText("\u6709\u52b9");
@@ -157,18 +157,18 @@ public class MainForm extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if (settings.line()) {
 					JFrame frame = new JFrame();
-					int option = JOptionPane.showConfirmDialog(frame, "İ’è‚ğíœ‚µ‚Ü‚·‚©H", "Setting", 0);
+					int option = JOptionPane.showConfirmDialog(frame, "è¨­å®šã‚’å‰Šé™¤ã—ã¾ã™ã‹ï¼Ÿ", "Setting", 0);
 				    if (option == JOptionPane.YES_OPTION){
 				    	settings.write("line", "");
 				    	textField_1.setText("\u7121\u52B9");
 				    }
 				} else {
 					JFrame frame = new JFrame();
-					String data = JOptionPane.showInputDialog(frame, "LINE Notify‚ÌToken‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B");
+					String data = JOptionPane.showInputDialog(frame, "LINE Notifyã®Tokenã‚’å…¥åŠ›ã—ã¦ãã ã•ã„ã€‚");
 					if (data == null) {
-						JOptionPane.showMessageDialog(null, "ƒLƒƒƒ“ƒZƒ‹‚µ‚Ü‚µ‚½B", "Settings", 1);
+						JOptionPane.showMessageDialog(null, "ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã—ã¾ã—ãŸã€‚", "Settings", 1);
 					} else if (data.equals("")) { 
-						JOptionPane.showMessageDialog(null, "ƒLƒƒƒ“ƒZƒ‹‚µ‚Ü‚µ‚½B", "Settings", 1);
+						JOptionPane.showMessageDialog(null, "ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã—ã¾ã—ãŸã€‚", "Settings", 1);
 					} else {
 						settings.write("line", data);
 						textField_1.setText("\u6709\u52b9");
@@ -193,7 +193,7 @@ public class MainForm extends JFrame {
 		lblNewLabel_1.setBounds(22, 91, 110, 13);
 		panel.add(lblNewLabel_1);
 		
-		JButton btnNewButton_1 = new JButton("‘I‘ğ");
+		JButton btnNewButton_1 = new JButton("é¸æŠ");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				final JFrame frame = new JFrame();
@@ -291,7 +291,7 @@ public class MainForm extends JFrame {
 				try {
 					if ((!textField_3.getText().equals("")) && (!textField_4.getText().equals(""))) {
 				        String file = textField_3.getText()+"\\"+textField_4.getText();
-				        textArea.append("[INFO] ŠÄ‹‚ğŠJn‚µ‚Ü‚·\n[INFO] Filepath:"+file+"\n");
+				        textArea.append("[INFO] ç›£è¦–ã‚’é–‹å§‹ã—ã¾ã™\n[INFO] Filepath:"+file+"\n");
 				        File isfile = new File(file);
 						
 				        new Thread(new Runnable() {
@@ -304,12 +304,12 @@ public class MainForm extends JFrame {
 				            	
 						        while (true) {
 						        	if (isfile.exists()) {
-						        		textArea.append("[INFO] ƒtƒ@ƒCƒ‹‚ğŒŸo‚µ‚Ü‚µ‚½B—e—Ê‚ÌŒŸØ‚ğs‚¢‚Ü‚·\n");
+						        		textArea.append("[INFO] ãƒ•ã‚¡ã‚¤ãƒ«ã‚’æ¤œå‡ºã—ã¾ã—ãŸã€‚å®¹é‡ã®æ¤œè¨¼ã‚’è¡Œã„ã¾ã™\n");
 						        		time += 1;
 										break;
 						        	} else {
 						        		time += 1;
-						        		textArea.append("[INFO] ŠÄ‹’† - ƒtƒ@ƒCƒ‹‚È‚µ Œo‰ßŠÔ:"+time+"•b\n");
+						        		textArea.append("[INFO] ç›£è¦–ä¸­ - ãƒ•ã‚¡ã‚¤ãƒ«ãªã— çµŒéæ™‚é–“:"+time+"ç§’\n");
 						        		try {
 											Thread.sleep(1000);
 										} catch (InterruptedException e) {
@@ -329,25 +329,25 @@ public class MainForm extends JFrame {
 						        	}
 						        	if (cnt < 20) {
 						        		time += 1;
-						        		textArea.append("[INFO] ŠÄ‹’† - —e—ÊŠm”F Œo‰ßŠÔ:"+time+"•b —e—Ê:"+fileout.length()+"\n");
+						        		textArea.append("[INFO] ç›£è¦–ä¸­ - å®¹é‡ç¢ºèª çµŒéæ™‚é–“:"+time+"ç§’ å®¹é‡:"+fileout.length()+"\n");
 						        		try {
 											Thread.sleep(1000);
 										} catch (InterruptedException e) {
 											e.printStackTrace();
 										}
 						        	} else {
-						        		textArea.append("[INFO] ƒŒƒ“ƒ_ƒŠƒ“ƒOŠ®—¹ Œo‰ßŠÔF"+time+"•b\n");
-						        		textArea.append("[INFO] ’Ê’m‚Ì‘—M‚ğŠJn‚µ‚Ü‚·B\n");
+						        		textArea.append("[INFO] ãƒ¬ãƒ³ãƒ€ãƒªãƒ³ã‚°å®Œäº† çµŒéæ™‚é–“ï¼š"+time+"ç§’\n");
+						        		textArea.append("[INFO] é€šçŸ¥ã®é€ä¿¡ã‚’é–‹å§‹ã—ã¾ã™ã€‚\n");
 						        		if (settings.line()) {
 						        			final String USER_TOKEN = settings.load().getProperty("line");
 						        			LineNotify ln = new LineNotify(USER_TOKEN);
 						        			try {
-												ln.notifyMe("ƒŒƒ“ƒ_ƒŠƒ“ƒO‚ªŠ®—¹‚µ‚Ü‚µ‚½I\nŒo‰ßŠÔ:"+time+"•b\nƒtƒ@ƒCƒ‹–¼:"+textField_4.getText());
+												ln.notifyMe("ãƒ¬ãƒ³ãƒ€ãƒªãƒ³ã‚°ãŒå®Œäº†ã—ã¾ã—ãŸï¼\nçµŒéæ™‚é–“:"+time+"ç§’\nãƒ•ã‚¡ã‚¤ãƒ«å:"+textField_4.getText());
 											} catch (IOException e) {
 												e.printStackTrace();
 											}
 						        		} else {
-						        			textArea.append("[INFO] LINE’Ê’m‚ª–³Œø‚È‚½‚ßAƒXƒLƒbƒv‚µ‚Ü‚µ‚½\n");
+						        			textArea.append("[INFO] LINEé€šçŸ¥ãŒç„¡åŠ¹ãªãŸã‚ã€ã‚¹ã‚­ãƒƒãƒ—ã—ã¾ã—ãŸ\n");
 						        		}
 										if (settings.discord()) {
 											DiscordWebhook webhook = new DiscordWebhook(settings.load().getProperty("discord"));
@@ -366,9 +366,9 @@ public class MainForm extends JFrame {
 												e.printStackTrace();
 											}
 										} else {
-											textArea.append("[INFO] Discord’Ê’m‚ª–³Œø‚È‚½‚ßAƒXƒLƒbƒv‚µ‚Ü‚µ‚½\n");
+											textArea.append("[INFO] Discordé€šçŸ¥ãŒç„¡åŠ¹ãªãŸã‚ã€ã‚¹ã‚­ãƒƒãƒ—ã—ã¾ã—ãŸ\n");
 										}
-										textArea.append("[INFO] ’Ê’m‚Ì‘—M‚ªŠ®—¹‚µ‚Ü‚µ‚½\n");
+										textArea.append("[INFO] é€šçŸ¥ã®é€ä¿¡ãŒå®Œäº†ã—ã¾ã—ãŸ\n");
 										break;
 						        	}
 						        }
@@ -380,10 +380,10 @@ public class MainForm extends JFrame {
 						textField_2.setText("\u76e3\u8996\u4e2d");
 						
 					} else {
-						JOptionPane.showMessageDialog(null, "ƒtƒ@ƒCƒ‹‚ğw’è‚µ‚Ä‚­‚¾‚³‚¢B", "Settings", 1);
+						JOptionPane.showMessageDialog(null, "ãƒ•ã‚¡ã‚¤ãƒ«ã‚’æŒ‡å®šã—ã¦ãã ã•ã„ã€‚", "Settings", 1);
 					}
 				} catch (Exception ex) {
-		            JOptionPane.showMessageDialog(null, "’v–½“I‚ÈƒGƒ‰[‚ª”­¶‚µ‚Ü‚µ‚½B\n"+ex.getMessage(), "HeyRender Error", JOptionPane.ERROR_MESSAGE);
+		            JOptionPane.showMessageDialog(null, "è‡´å‘½çš„ãªã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ã¾ã—ãŸã€‚\n"+ex.getMessage(), "HeyRender Error", JOptionPane.ERROR_MESSAGE);
 		           	System.exit(0);
 				}
 			}
