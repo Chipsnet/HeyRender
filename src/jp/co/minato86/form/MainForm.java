@@ -256,11 +256,11 @@ public class MainForm extends JFrame {
 		lblNewLabel_2.setBounds(27, 25, 322, 55);
 		panel_2.add(lblNewLabel_2);
 		
-		JLabel lblVersionBeta = new JLabel("Version: Beta 1.0.0");
+		JLabel lblVersionBeta = new JLabel("Version: 1.0.0");
 		lblVersionBeta.setBounds(27, 79, 180, 13);
 		panel_2.add(lblVersionBeta);
 		
-		JLabel lblcMinato = new JLabel("(c) 2019 Minato86");
+		JLabel lblcMinato = new JLabel("(c) 2019 - 2021 Minato86");
 		lblcMinato.setBounds(27, 167, 112, 13);
 		panel_2.add(lblcMinato);
 		
