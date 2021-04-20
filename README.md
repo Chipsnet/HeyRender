@@ -52,3 +52,7 @@ Java11が導入できれば大丈夫です
 ### 3. 起動
 
 起動から動作に関しては[紹介ページ](https://lab.m86.work/2019/09/heyrender.html)を御覧ください。
+
+## 支援
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/A0A81VPXD)
